@@ -16,7 +16,7 @@ class App extends Component {
     return (
       <Router>
         <div>
-          <HeaderComponent title={"Finding Falcon"} button={{title: "Github", link: "https://www.github.com/guptahardik17"}}/>
+          <HeaderComponent title={"Finding Falcon"} button={{title: "Github", link: "https://github.com/guptahardik17/geektrust-finding-falcon"}}/>
             <Switch> 
               <Route path="/result" component={Result}/>
               <Route path="/" component={Home}/>

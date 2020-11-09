@@ -35,18 +35,24 @@ export class HomePage extends React.Component{
 
     onDeselectPlanet = (armyNumber) => {
         const armies = this.state.armies;
+        
+        if(!armies[armyNumber]){
+            return;
+        }
+        
         const vehiclesMapping = this.state.vehiclesMapping;
-
-        const selectedPlanet = armies[armyNumber].planet.name;
+        const selectedPlanets = this.state.selectedPlanets;
         
         if(armies[armyNumber].vehicle){
             vehiclesMapping[armies[armyNumber].vehicle.name] += 1;
         }
 
-        delete armies[armyNumber];
+        if(armies[armyNumber].planet){
+            const selectedPlanet = armies[armyNumber].planet.name;
+            selectedPlanets.splice(selectedPlanets.indexOf(selectedPlanet), 1);
+        }
 
-        const selectedPlanets = this.state.selectedPlanets;
-        selectedPlanets.splice(selectedPlanets.indexOf(selectedPlanet), 1);
+        delete armies[armyNumber];
 
         this.setState({
             armies,
