@@ -6,6 +6,7 @@ var axiosInstance = axios.create();
 // request
 axiosInstance.interceptors.request.use(
   config => {
+    config.headers["Access-Control-Allow-Origin"] = "*"
     // Common API config changes can be handled here.
     
     return config;
